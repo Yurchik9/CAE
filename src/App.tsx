@@ -11,6 +11,7 @@ import { FlashcardTrainer } from './components/FlashcardTrainer';
 import { ComparisonTool } from './components/ComparisonTool';
 import { UsefulResources } from './components/UsefulResources';
 import { GRAMMAR_SECTIONS } from './data/grammarData';
+import { Sparkles, PenTool, BookOpen, Award, HelpCircle, Layers, Split, ExternalLink, Bookmark } from 'lucide-react';
 
 export const App: React.FC = () => {
   const [activeView, setActiveView] = useState<string>('path');
@@ -106,6 +107,81 @@ export const App: React.FC = () => {
         mobileMenuOpen={mobileMenuOpen}
         setMobileMenuOpen={setMobileMenuOpen}
       />
+
+      {/* Quick Mobile Horizontal Navigation Pills (Visible on small screens) */}
+      <div style={{
+        background: 'var(--bg-secondary)',
+        borderBottom: '1px solid var(--border-color)',
+        padding: '0.5rem 0.75rem',
+        overflowX: 'auto',
+        whiteSpace: 'nowrap',
+        display: 'flex',
+        gap: '0.4rem',
+        alignItems: 'center'
+      }}>
+        <button
+          className={`btn ${activeView === 'path' ? 'btn-primary' : 'btn-ghost'}`}
+          onClick={() => setActiveView('path')}
+          style={{ padding: '0.35rem 0.75rem', fontSize: '0.8rem', minHeight: '32px' }}
+        >
+          <Sparkles size={14} color="#fbbf24" />
+          <span>Path</span>
+        </button>
+
+        <button
+          className={`btn ${activeView === 'writing' ? 'btn-primary' : 'btn-ghost'}`}
+          onClick={() => setActiveView('writing')}
+          style={{ padding: '0.35rem 0.75rem', fontSize: '0.8rem', minHeight: '32px' }}
+        >
+          <PenTool size={14} color="#8b5cf6" />
+          <span>Writing</span>
+        </button>
+
+        <button
+          className={`btn ${activeView === 'guide' ? 'btn-primary' : 'btn-ghost'}`}
+          onClick={() => setActiveView('guide')}
+          style={{ padding: '0.35rem 0.75rem', fontSize: '0.8rem', minHeight: '32px' }}
+        >
+          <BookOpen size={14} />
+          <span>Guide</span>
+        </button>
+
+        <button
+          className={`btn ${activeView === 'transformations' ? 'btn-primary' : 'btn-ghost'}`}
+          onClick={() => setActiveView('transformations')}
+          style={{ padding: '0.35rem 0.75rem', fontSize: '0.8rem', minHeight: '32px' }}
+        >
+          <Award size={14} color="#fbbf24" />
+          <span>Part 4</span>
+        </button>
+
+        <button
+          className={`btn ${activeView === 'quizzes' ? 'btn-primary' : 'btn-ghost'}`}
+          onClick={() => setActiveView('quizzes')}
+          style={{ padding: '0.35rem 0.75rem', fontSize: '0.8rem', minHeight: '32px' }}
+        >
+          <HelpCircle size={14} color="#22d3ee" />
+          <span>Quizzes</span>
+        </button>
+
+        <button
+          className={`btn ${activeView === 'flashcards' ? 'btn-primary' : 'btn-ghost'}`}
+          onClick={() => setActiveView('flashcards')}
+          style={{ padding: '0.35rem 0.75rem', fontSize: '0.8rem', minHeight: '32px' }}
+        >
+          <Layers size={14} color="#34d399" />
+          <span>Cards</span>
+        </button>
+
+        <button
+          className={`btn ${activeView === 'compare' ? 'btn-primary' : 'btn-ghost'}`}
+          onClick={() => setActiveView('compare')}
+          style={{ padding: '0.35rem 0.75rem', fontSize: '0.8rem', minHeight: '32px' }}
+        >
+          <Split size={14} color="#f43f5e" />
+          <span>Compare</span>
+        </button>
+      </div>
 
       <div className="layout-container">
         <Sidebar
