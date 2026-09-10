@@ -18,6 +18,7 @@ export const App: React.FC = () => {
   const [activeQuizModalId, setActiveQuizModalId] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
   // Persistence in localStorage
   const [bookmarks, setBookmarks] = useState<string[]>(() => {
@@ -102,6 +103,8 @@ export const App: React.FC = () => {
         bookmarkedCount={bookmarks.length}
         completedTransformationsCount={completedTransformations.length}
         xp={xp}
+        mobileMenuOpen={mobileMenuOpen}
+        setMobileMenuOpen={setMobileMenuOpen}
       />
 
       <div className="layout-container">
@@ -110,6 +113,8 @@ export const App: React.FC = () => {
           setActiveView={setActiveView}
           activeSectionId={activeSectionId}
           setActiveSectionId={setActiveSectionId}
+          mobileMenuOpen={mobileMenuOpen}
+          setMobileMenuOpen={setMobileMenuOpen}
         />
 
         <main style={{ minWidth: 0, paddingBottom: '3rem' }}>
