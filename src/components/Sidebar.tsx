@@ -57,37 +57,27 @@ export const Sidebar: React.FC<SidebarProps> = ({
         />
       )}
 
-      {/* Sidebar Navigation (Desktop Fixed / Mobile Slide-in Drawer) */}
-      <aside style={{
-        background: 'var(--bg-secondary)',
-        borderRight: '1px solid var(--border-color)',
-        padding: '1.25rem 1rem',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '1.5rem',
-        height: 'calc(100vh - 65px)',
-        overflowY: 'auto',
-        position: 'sticky',
-        top: '65px',
-        zIndex: 150,
-        transition: 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-        ...(mobileMenuOpen
-          ? {
-              position: 'fixed',
-              top: '65px',
-              left: 0,
-              width: '280px',
-              transform: 'translateX(0)',
-              boxShadow: '10px 0 30px rgba(0, 0, 0, 0.5)'
-            }
-          : {})
-      }} className={mobileMenuOpen ? 'mobile-drawer-open' : 'desktop-sidebar'}>
-        
+      {/* Sidebar Navigation */}
+      <aside
+        className={mobileMenuOpen ? 'mobile-drawer-open' : 'desktop-sidebar'}
+        style={{
+          background: 'var(--bg-secondary)',
+          borderRight: '1px solid var(--border-color)',
+          padding: '1.25rem 1rem',
+          flexDirection: 'column',
+          gap: '1.5rem',
+          height: 'calc(100vh - 65px)',
+          overflowY: 'auto',
+          position: 'sticky',
+          top: '65px',
+          zIndex: 150
+        }}
+      >
         {/* Mobile Drawer Title Header */}
         {mobileMenuOpen && (
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: '0.5rem', borderBottom: '1px solid var(--border-color)' }}>
             <span style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--accent-cyan)' }}>Navigation Menu</span>
-            <button className="btn btn-ghost" onClick={() => setMobileMenuOpen(false)} style={{ padding: '0.2rem' }}>
+            <button className="btn btn-ghost" onClick={() => setMobileMenuOpen(false)} style={{ padding: '0.2rem', minHeight: 'auto' }}>
               <X size={18} />
             </button>
           </div>

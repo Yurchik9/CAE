@@ -338,14 +338,32 @@ code, kbd, pre {
 /* MOBILE RESPONSIVE STYLES */
 @media (max-width: 900px) {
   .layout-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Sidebar on mobile: hidden by default, fixed overlay drawer when open */
+  .desktop-sidebar {
+    display: none !important;
+  }
+
+  .mobile-drawer-open {
+    display: flex !important;
+    position: fixed !important;
+    top: 65px !important;
+    left: 0 !important;
+    width: 280px !important;
+    max-width: 85vw !important;
+    height: calc(100vh - 65px) !important;
+    z-index: 150 !important;
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.6) !important;
+    background: var(--bg-secondary) !important;
   }
 
   /* Responsive Padding Adjustments */
   div[style*="padding: 2rem 2.5rem"],
   div[style*="padding: 2.5rem"],
   main {
-    padding: 1rem 0.85rem !important;
+    padding: 1rem 0.75rem !important;
   }
 
   /* Font Scaling on Mobile */
